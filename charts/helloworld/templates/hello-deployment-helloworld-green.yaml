@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name:  helloworld
+  name:  {{ template "helloworld.fullname" . }}-green
 spec:
   selector:
-    app:  helloworld
+    app.kubernetes.io/instance: hello-deployment
   type:  ClusterIP
   ports:
   - name:  http
