@@ -1,7 +1,7 @@
-apiVersion: argoproj.io/v1alpha1               # Create a rollout resource
+apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollout-ref-deployment
+  name: rollout-bluegreen
 spec:
   replicas: 5
   selector:
@@ -15,6 +15,6 @@ spec:
     kind: Deployment
     name: preview
   strategy:
-    bluegreen:
+    blueGreen:
       activeService: helloworld
       previewService: preview
