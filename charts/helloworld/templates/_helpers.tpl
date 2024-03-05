@@ -48,6 +48,7 @@ Selector labels
 {{- define "helloworld.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "helloworld.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+app: {{ template "helloworld.name" . }}
 {{- end }}
 
 {{/*
