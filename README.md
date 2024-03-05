@@ -18,13 +18,14 @@ minikube start
 
 ```bash
 #to get argocd services
-kubectl get svc -n argocd 
+kubectl get svc -n argocd
 
 #portforwarding to argocd-server to access the UI
-kubectl port-forward svc/argocd-server -n argocd 8080:443   
+kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
 ## Login to argocd UI
+
 ```bash
 # To get argocd UI password
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
@@ -33,7 +34,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 brew install argocd
 
 # login to argocd
-argocd login 127.0.0.1:8080  
+argocd login 127.0.0.1:8080
 
 # to update password
 argocd account update-password --current-password curr_password --new-password new_password
@@ -44,7 +45,9 @@ kubectl get pods -n argo-rollouts
 ```
 
 ## Install argo-rollouts plugin
+
 ### Reference
+
 https://argo-rollouts.readthedocs.io/en/stable/installation/
 
 https://github.com/argoproj/argo-rollouts/blob/master/examples/rollout-bluegreen.yaml
@@ -64,11 +67,17 @@ kubectl argo rollouts version
 
 kubectl argo rollouts list rollouts
 
-kubectl argo rollouts get rollout hello-deployment-helloworld --watch 
+kubectl argo rollouts get rollout hello-deployment-helloworld --watch -n argocd
+
+kubectl argo rollouts dashboard -n argocd
 
 kubectl argo rollouts abort superapi
 
 kubectl delete rollout superapi
+
+# manually applying rollouts and services
+kubectl apply -f deployments.yaml
+kubectl apply -f rollouts.yaml
+kubectl apply -f active-service.yaml
+kubectl apply -f preview-service.yaml
 ```
-
-
