@@ -12,7 +12,7 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: {{ template "helloworld.name" . }}
+      app.kubernetes.io/instance: {{ template "helloworld.fullname" . }}
       release: {{ .Release.Name }}
   workloadRef:                                 # Reference an existing Deployment using workloadRef field
     apiVersion: apps/v1
