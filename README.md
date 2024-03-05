@@ -71,9 +71,9 @@ kubectl argo rollouts get rollout hello-deployment-helloworld --watch -n argocd
 
 kubectl argo rollouts dashboard -n argocd
 
-kubectl argo rollouts abort superapi
+kubectl argo rollouts abort rollout_name
 
-kubectl delete rollout superapi
+kubectl delete rollout rollout_name
 
 # manually applying rollouts and services
 kubectl apply -f deployments.yaml
