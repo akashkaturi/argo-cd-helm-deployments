@@ -39,4 +39,36 @@ argocd login 127.0.0.1:8080
 argocd account update-password --current-password curr_password --new-password new_password
 ```
 
+```bash
+kubectl get pods -n argo-rollouts
+```
+
+## Install argo-rollouts plugin
+### Reference
+https://argo-rollouts.readthedocs.io/en/stable/installation/
+
+https://github.com/argoproj/argo-rollouts/blob/master/examples/rollout-bluegreen.yaml
+
+https://medium.com/data-and-beyond/argo-rollouts-advanced-strategies-for-smooth-deployments-9fc1ebd64c7a#:~:text=Blue%2DGreen%20Deployments%3A%20Argo%20Rollouts,of%20downtime%20or%20issues%20during
+
+```bash
+
+
+curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-darwin-amd64
+
+chmod +x ./kubectl-argo-rollouts-darwin-amd64
+
+sudo mv ./kubectl-argo-rollouts-darwin-amd64 /usr/local/bin/kubectl-argo-rollouts
+
+kubectl argo rollouts version
+
+kubectl argo rollouts list rollouts
+
+kubectl argo rollouts get rollout hello-deployment-helloworld --watch 
+
+kubectl argo rollouts abort superapi
+
+kubectl delete rollout superapi
+```
+
 
