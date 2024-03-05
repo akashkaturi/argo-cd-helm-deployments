@@ -16,12 +16,20 @@ metadata:
 spec:
   # The project the application belongs to.
   project: default
-
   # Source of the application manifests
   source:
-    repoURL: https://github.com/akashkaturi/argo-cd-helm-deployments.git  # Can point to either a Helm chart repo or a git repo.  # For Helm, this refers to the chart version.
-    path: charts/helloworld  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
-    targetRevision: main
+    project: default
+    source:
+      repoURL: 'https://github.com/akashkaturi/argo-cd-helm-deployments.git'
+      path: charts/helloworld
+      targetRevision: HEAD
+    destination:
+      server: 'https://kubernetes.default.svc'
+      namespace: argocd
+    syncPolicy:
+      automated: {}
+      syncOptions:
+        - CreateNamespace=true
     # helm specific config
     chart: helloworld  # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
     helm:
@@ -46,11 +54,3 @@ spec:
           hosts:
             - chart-example.local
           tls: []
-
-  destination:
-    # cluster API URL
-    server: https://kubernetes.default.svc
-    # or cluster name
-    # name: in-cluster
-    # The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace
-    namespace: argocd
