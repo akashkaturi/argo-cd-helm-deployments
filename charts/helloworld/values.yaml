@@ -26,7 +26,10 @@ serviceAccount:
   name: ""
 
 podAnnotations: {}
-podLabels: {}
+podLabels:
+  app.kubernetes.io/name: "helloworld"
+  app: "helloworld"
+
 
 podSecurityContext: {}
   # fsGroup: 2000
