@@ -24,10 +24,6 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
-  syncPolicy:
-    automated: {}
-    syncOptions:
-      - CreateNamespace=true
   # helm specific config
   chart: helloworld  # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
   helm:
