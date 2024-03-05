@@ -21,15 +21,10 @@ spec:
     repoURL: 'https://github.com/akashkaturi/argo-cd-helm-deployments.git'
     path: charts/helloworld
     targetRevision: HEAD
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: argocd
-  # helm specific config
-  chart: helloworld  # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
+
   helm:
     values: |
       replicaCount: 1
-
       image:
         repository: gcr.io/heptio-images/ks-guestbook-demo
         tag: 0.1
@@ -39,12 +34,6 @@ spec:
         type: ClusterIP
         port: 80
 
-      ingress:
-        enabled: false
-        annotations: {}
-          # kubernetes.io/ingress.class: nginx
-          # kubernetes.io/tls-acme: "true"
-        path: /
-        hosts:
-          - chart-example.local
-        tls: []
+  destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: argocd
