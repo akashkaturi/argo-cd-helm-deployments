@@ -18,7 +18,6 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: hello-deployment-helloworld
-    scaleDown: onsuccess
   strategy:
     blueGreen:
       activeService: {{ template "helloworld.fullname" . }}-blue
