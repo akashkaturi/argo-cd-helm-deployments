@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-deployment
+  # You'll usually want to add your resources to the argocd namespace.
+  namespace: argocd
+  # Add this finalizer ONLY if you want these to cascade delete.
+  finalizers:
+    # The default behaviour is foreground cascading deletion
+    - resources-finalizer.argocd.argoproj.io
+    # Alternatively, you can use background cascading deletion
+    # - resources-finalizer.argocd.argoproj.io/background
+  # Add labels to your application object.
+  labels:
+    name: hello-deployment
+spec:
+  # The project the application belongs to.
+  project: default
+  # Source of the application manifests
+  source:
+    repoURL: 'https://github.com/akashkaturi/argo-cd-helm-deployments.git'
+    path: charts/helloworld
+    targetRevision: HEAD
+
+    helm:
+      values: |
+        replicaCount: 1
+        image:
+          repository: gcr.io/heptio-images/ks-guestbook-demo
+          tag: 0.1
+          pullPolicy: IfNotPresent
+
+        service:
+          type: ClusterIP
+          port: 80
+
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
