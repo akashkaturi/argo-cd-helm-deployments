@@ -81,3 +81,7 @@ kubectl apply -f rollouts.yaml
 kubectl apply -f active-service.yaml
 kubectl apply -f preview-service.yaml
 ```
+
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
