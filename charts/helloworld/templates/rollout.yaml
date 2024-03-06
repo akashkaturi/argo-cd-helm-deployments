@@ -16,7 +16,11 @@ spec:
   workloadRef:                                 # Reference an existing Deployment using workloadRef field
     apiVersion: apps/v1
     kind: Deployment
-    name: hello-deployment-helloworld
+    name: hello-deployment-green
+  workloadRef:                                 # Reference an existing Deployment using workloadRef field
+    apiVersion: apps/v1
+    kind: Deployment
+    name: hello-deployment-blue
   strategy:
     blueGreen:
       activeService: {{ template "helloworld.fullname" . }}-blue
