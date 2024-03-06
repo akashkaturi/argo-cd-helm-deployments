@@ -4,7 +4,7 @@ metadata:
   name:  {{ template "helloworld.fullname" . }}-blue
 spec:
   selector:
-    app: hello-deployment-helloworld-blue
+    app: helloworld
   type:  ClusterIP
   ports:
   - name:  http
