@@ -12,7 +12,7 @@ spec:
   revisionHistoryLimit: 5
   selector:
     matchLabels:
-      app: "helloworld"
+      app: helloworld
   workloadRef:
     apiVersion: apps/v1
     kind: Deployment
