@@ -14,18 +14,9 @@ spec:
     matchLabels:
       app: "helloworld"
   workloadRef:
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: hello-deployment-green
-      selector:
-        matchLabels:
-          app: helloworld
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: hello-deployment-blue
-      selector:
-        matchLabels:
-          app: helloworld
+    apiVersion: apps/v1
+    kind: Deployment
+    name: helloworld
   strategy:
     blueGreen:
       activeService: {{ template "helloworld.fullname" . }}-blue
