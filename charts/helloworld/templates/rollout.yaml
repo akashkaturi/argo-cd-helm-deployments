@@ -22,3 +22,4 @@ spec:
       activeService: {{ template "helloworld.fullname" . }}-blue
       previewService: {{ template "helloworld.fullname" . }}-green
       autoPromotionEnabled: false
+      previewReplicaCount: 1
