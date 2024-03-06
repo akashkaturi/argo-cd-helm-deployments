@@ -21,3 +21,4 @@ spec:
     blueGreen:
       activeService: {{ template "helloworld.fullname" . }}-blue
       previewService: {{ template "helloworld.fullname" . }}-green
+      autoPromotionEnabled: false
