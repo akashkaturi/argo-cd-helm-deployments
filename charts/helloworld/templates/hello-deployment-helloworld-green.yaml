@@ -4,7 +4,6 @@ metadata:
   name:  {{ template "helloworld.fullname" . }}-green
 spec:
   selector:
-    app.kubernetes.io/instance: hello-deployment-helloworld-blue
     app: hello-deployment-helloworld-blue
   type:  ClusterIP
   ports:

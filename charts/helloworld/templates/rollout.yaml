@@ -13,14 +13,19 @@ spec:
   selector:
     matchLabels:
       app: "helloworld"
-  workloadRef:                                 # Reference an existing Deployment using workloadRef field
-    apiVersion: apps/v1
-    kind: Deployment
-    name: hello-deployment-green
-  workloadRef:                                 # Reference an existing Deployment using workloadRef field
-    apiVersion: apps/v1
-    kind: Deployment
-    name: hello-deployment-blue
+  workloadRef:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: hello-deployment-green
+      selector:
+        matchLabels:
+          app: hello-deployment-helloworld-blue
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: hello-deployment-blue
+      selector:
+        matchLabels:
+          app: hello-deployment-helloworld-blue
   strategy:
     blueGreen:
       activeService: {{ template "helloworld.fullname" . }}-blue
