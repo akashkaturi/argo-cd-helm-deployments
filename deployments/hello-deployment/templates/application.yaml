@@ -29,6 +29,7 @@ spec:
           repository: gcr.io/heptio-images/ks-guestbook-demo
           tag: 0.2
           pullPolicy: IfNotPresent
+          platform: linux/amd64
 
         service:
           type: ClusterIP
