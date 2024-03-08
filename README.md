@@ -85,3 +85,11 @@ kubectl apply -f preview-service.yaml
 ![alt text](image.png)
 ![alt text](image-1.png)
 ![alt text](image-2.png)
+
+
+### Pod failure
+https://github.com/docker/compose/issues/10185
+On arm64 - exec /usr/local/bin/docker-entrypoint.sh: exec format error
+```bash
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+```
