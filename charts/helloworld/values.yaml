@@ -103,7 +103,9 @@ volumeMounts: []
 #   mountPath: "/etc/foo"
 #   readOnly: true
 
-nodeSelector: {}
+nodeSelector:
+  kubernetes.io/os: linux
+  beta.kubernetes.io/arch: amd64
 
 tolerations: []
 
