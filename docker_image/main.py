@@ -4,10 +4,17 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+items = {}
+
 
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
+
+
+@app.get("/items/")
+def read_item():
+    return {"items": items}
 
 
 @app.get("/items/{item_id}")
