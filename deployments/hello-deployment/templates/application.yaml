@@ -27,7 +27,7 @@ spec:
         replicaCount: 1
         image:
           repository: akashkaturi/argofastapi
-          tag: 0.3
+          tag: 0.4
           pullPolicy: IfNotPresent
 
         service:

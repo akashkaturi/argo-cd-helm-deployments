@@ -5,6 +5,7 @@ from fastapi import FastAPI
 app = FastAPI()
 
 items = {}
+names = {}
 
 
 @app.get("/")
@@ -15,6 +16,11 @@ def read_root():
 @app.get("/items/")
 def read_item():
     return {"items": items}
+
+
+@app.get("/names/")
+def read_item():
+    return {"names": names}
 
 
 @app.get("/items/{item_id}")
