@@ -23,8 +23,8 @@ spec:
     targetRevision: HEAD
 
     helm:
-      valuefiles:
-        values.yaml
+      valueFiles:
+        - values.yaml
 
 
   destination:
