@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name:  {{ .Release.Name }}
+  name: {{ .Release.Name }}
   labels:
-    app:  {{ .Release.Name }}-{{ .Values.env.name }}
-    chart:  {{ .Chart.Name }}
+    app: {{ .Release.Name }}
+    chart: {{ .Chart.Name }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -12,7 +12,7 @@ spec:
   revisionHistoryLimit: 5
   selector:
     matchLabels:
-      app:  {{ .Release.Name }}
+      "app.kubernetes.io/instance": {{ .Release.Name }}
   workloadRef:
     apiVersion: apps/v1
     kind: Deployment
