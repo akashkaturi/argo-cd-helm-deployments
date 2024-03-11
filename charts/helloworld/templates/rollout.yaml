@@ -16,7 +16,7 @@ spec:
   workloadRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: helloworld
+    name: {{ .Release.Name }}
   strategy:
     blueGreen:
       activeService: active-service

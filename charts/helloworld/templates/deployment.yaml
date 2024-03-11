@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helloworld
+  name: {{- include "helloworld.labels" . | nindent 4 }}
   labels:
     {{- include "helloworld.labels" . | nindent 4 }}
 spec:
