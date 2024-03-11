@@ -5,7 +5,7 @@ metadata:
   labels:
     app: {{ template "helloworld.name" . }}
     chart: {{ template "helloworld.chart" . }}
-    release: {{ .Release.Name }}-rollout
+    release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
