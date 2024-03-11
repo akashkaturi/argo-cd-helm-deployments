@@ -23,9 +23,16 @@ spec:
     targetRevision: HEAD
 
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+        replicaCount: 1
+        image:
+          repository: akashkaturi/argofastapi
+          tag: 0.4
+          pullPolicy: IfNotPresent
 
+        service:
+          type: ClusterIP
+          port: 80
 
   destination:
     server: 'https://kubernetes.default.svc'
