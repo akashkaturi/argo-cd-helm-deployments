@@ -34,6 +34,9 @@ spec:
           type: ClusterIP
           port: 80
 
+        env:
+          name: "tst"
+
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd

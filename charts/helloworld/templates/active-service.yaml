@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name:  active-service
+  name:  active-service-{{.Values.env.name}}
 spec:
   selector:
     app: {{ .Release.Name }}
