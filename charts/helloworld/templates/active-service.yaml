@@ -4,7 +4,7 @@ metadata:
   name:  active-service-{{.Values.env.name}}
 spec:
   selector:
-    app: {{ .Release.Name }}
+    "app.kubernetes.io/instance": {{ .Release.Name }}
   type:  ClusterIP
   ports:
   - name:  http
