@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name:  {{ .Release.Name }}
   labels:
-    app:  {{ .Release.Name }}
+    app:  {{ .Release.Name }}-{{ .Values.env.name }}
     chart:  {{ .Chart.Name }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
