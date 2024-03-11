@@ -24,7 +24,7 @@ spec:
 
     helm:
       valuefiles:
-
+        values.yaml
 
 
   destination:
