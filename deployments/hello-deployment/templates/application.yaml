@@ -15,7 +15,7 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles: 
-        - deployments/hello-deployment/templates/values-dev.yaml
+        - deployments/hello-deployment/values-dev.yaml
 
   destination:
     server: "https://kubernetes.default.svc"
