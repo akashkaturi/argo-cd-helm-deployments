@@ -18,26 +18,16 @@ spec:
   project: default
   # Source of the application manifests
   source:
-    repoURL: 'https://github.com/akashkaturi/argo-cd-helm-deployments.git'
+    repoURL: "https://github.com/akashkaturi/argo-cd-helm-deployments.git"
     path: charts/helloworld
     targetRevision: HEAD
 
     helm:
-      values: |
-        replicaCount: 1
-        image:
-          repository: akashkaturi/argofastapi
-          tag: 0.4
-          pullPolicy: IfNotPresent
-
-        service:
-          type: ClusterIP
-          port: 80
-        env:
-          name: "dev"
+      valueFiles: |
+        - deployments/hello-deployment/templates/values-dev.yaml
 
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: "https://kubernetes.default.svc"
     namespace: argocd
 
   syncPolicy:
