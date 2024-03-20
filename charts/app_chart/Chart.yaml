@@ -24,5 +24,6 @@ version: 0.1.0
 appVersion: "1.16.0"
 
 dependencies:
-  - name: charts/helloworld
-    repository: https://github.com/akashkaturi/argo-cd-helm-deployments.git
+  - name: my-alpine
+    version: 1.0.0
+    repository: https://wenerme.github.io/charts
