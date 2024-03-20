@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helloworld-dev
+  name: helloworld-samp
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
-    name: helloworld-dev
+    name: helloworld-samp
 spec:
   project: default
   source:
