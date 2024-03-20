@@ -14,8 +14,19 @@ spec:
     path: charts/helloworld
     targetRevision: HEAD
     helm:
-      valueFiles: 
-        - deployments/hello-deployment/values-dev.yaml
+      values: |
+        replicaCount: 1
+        image:
+          repository: akashkaturi/argofastapi
+          tag: 0.4
+          pullPolicy: IfNotPresent
+
+        service:
+          type: ClusterIP
+          port: 80
+
+        env:
+          name: "tst"
 
   destination:
     server: "https://kubernetes.default.svc"
