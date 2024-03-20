@@ -25,5 +25,4 @@ appVersion: "1.16.0"
 
 dependencies:
   - name: charts/helloworld
-    version: 0.1.0
     repository: https://github.com/akashkaturi/argo-cd-helm-deployments.git
