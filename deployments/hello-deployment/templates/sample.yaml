@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helloworld-dev
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: helloworld-dev
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/akashkaturi/argo-cd-helm-deployments.git"
+    path: charts/appchart
+    targetRevision: HEAD
+
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
