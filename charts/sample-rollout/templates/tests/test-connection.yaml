@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "sample-rollout.fullname" . }}-test-connection"
+  labels:
+    {{- include "sample-rollout.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "sample-rollout.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
