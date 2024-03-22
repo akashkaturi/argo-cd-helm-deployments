@@ -12,8 +12,7 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: {{ template "sample-rollout.name" . }}
-      release: {{ .Release.Name }}
+      {{- include "sample-rollout.labels" . | nindent 8 }}
   strategy:
     blueGreen:
       activeService: {{ include "sample-rollout.fullname" . }}
