@@ -14,9 +14,15 @@ spec:
     matchLabels:
       {{- include "sample-rollout.selectorLabels" . | nindent 8 }}
   strategy:
-    blueGreen:
-      activeService: {{ include "sample-rollout.fullname" . }}
-      previewService: {{ template "sample-rollout.fullname" . }}-preview
+    canary: #Indicates that the rollout should use the Canary strategy
+      maxSurge: "25%"
+      maxUnavailable: 0
+      steps:
+      - setWeight: 10
+      - pause:
+          duration: 1h # 1 hour
+      - setWeight: 20
+      - pause: {} # pause indefinitely
   template:
     metadata:
       labels:
