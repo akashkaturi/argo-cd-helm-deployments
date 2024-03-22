@@ -21,8 +21,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ template "sample-rollout.name" . }}
-        release: {{ .Release.Name }}
+        {{- include "sample-rollout.labels" . | nindent 8 }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
