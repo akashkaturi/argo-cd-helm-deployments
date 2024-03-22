@@ -1,0 +1,6 @@
+dependencies:
+- name: helm-example
+  repository: https://nakamasato.github.io/helm-charts
+  version: 0.1.0
+digest: sha256:458d8c1e8b2436240564be2b637f6b46c14b0b82ab66135866f22bf52067d783
+generated: "2024-03-21T10:24:44.460096+05:30"

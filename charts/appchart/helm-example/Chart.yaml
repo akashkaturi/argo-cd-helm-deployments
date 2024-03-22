@@ -1,0 +1,11 @@
+apiVersion: v2
+appVersion: v0.0.1
+description: Simple API application.
+maintainers:
+- name: nakamasato
+name: helm-example
+sources:
+- https://github.com/nakamasato/kubernetes-training
+- https://github.com/nakamasato/flask-test
+type: application
+version: 0.1.0
