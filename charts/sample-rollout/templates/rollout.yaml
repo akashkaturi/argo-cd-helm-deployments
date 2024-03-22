@@ -12,7 +12,7 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      {{- include "sample-rollout.labels" . | nindent 8 }}
+      {{- include "sample-rollout.selectorLabels" . | nindent 8 }}
   strategy:
     blueGreen:
       activeService: {{ include "sample-rollout.fullname" . }}
