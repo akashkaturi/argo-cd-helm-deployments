@@ -93,3 +93,12 @@ On arm64 - exec /usr/local/bin/docker-entrypoint.sh: exec format error
 ```bash
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 ```
+
+```bash
+argocd app create helloworld \
+  --repo https://github.com/akashkaturi/argo-cd-helm-deployments.git \
+  --path charts/helloworld \
+  --sync-policy auto \
+  --dest-namespace argocd \
+  --dest-server https://kubernetes.default.svc
+```
