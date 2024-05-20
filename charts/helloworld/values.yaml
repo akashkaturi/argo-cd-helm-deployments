@@ -108,3 +108,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# values.yaml
+env:
+  DATABASE_URL: "your-database-url"
+  API_KEY: "your-api-key"
+  ANOTHER_VAR: "another-value"
+  # Add more variables as needed
