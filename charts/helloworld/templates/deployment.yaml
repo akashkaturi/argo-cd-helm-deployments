@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -41,7 +42,7 @@ spec:
             - name: {{ $key }}
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Release.Name }}-env-secret
+                  name: {{ $.Release.Name }}-env-secret
                   key: {{ $key }}
             {{- end }}
           ports:
