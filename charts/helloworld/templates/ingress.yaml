@@ -49,11 +49,11 @@ spec:
             backend:
               {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
               service:
-                name: active-service-{{.Values.env.name}}
+                name: {{ printf "active-service-%s" $.Values.env.name }}
                 port:
                   number: 80
               {{- else }}
-              serviceName: active-service-{{.Values.env.name}}
+              serviceName: {{ printf "active-service-%s" $.Values.env.name }}
               servicePort: 80
               {{- end }}
           {{- end }}
