@@ -15,6 +15,7 @@ spec:
     targetRevision: HEAD
     helm:
       values: |
+        replicaCount: 1
         image:
           repository: akashkaturi/argofastapi
           tag: 0.4
