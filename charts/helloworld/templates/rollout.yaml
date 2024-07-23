@@ -1,9 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: {{ .Release.Name }}-preview
+  name: {{ .Release.Name }}
   labels:
-    app: {{ .Release.Name }}-preview
+    app: {{ .Release.Name }}
     chart: {{ .Chart.Name }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}

@@ -5,7 +5,6 @@ metadata:
 spec:
   selector:
     "app.kubernetes.io/instance": {{ .Release.Name }}
-    "app": helloworld
   type:  NodePort
   ports:
   - name:  http
