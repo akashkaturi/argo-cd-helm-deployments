@@ -17,7 +17,7 @@ spec:
   workloadRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ .Release.Name }}
+    name: {{ .Release.Name }}-preview
   strategy:
     blueGreen:
       activeService: active-service-{{.Values.env.name}}
