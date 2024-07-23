@@ -13,6 +13,7 @@ spec:
   selector:
     matchLabels:
       "app.kubernetes.io/instance": {{ .Release.Name }}
+      "app": {{ .Release.Name }}-preview
   workloadRef:
     apiVersion: apps/v1
     kind: Deployment
