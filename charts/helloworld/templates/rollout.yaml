@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ .Release.Name }}-preview
   labels:
     app: {{ .Release.Name }}-preview
     chart: {{ .Chart.Name }}
