@@ -4,7 +4,6 @@ metadata:
   name: preview-service-{{.Values.env.name}}
 spec:
   selector:
-    "app.kubernetes.io/instance": {{ .Release.Name }}
     "app": {{ .Release.Name }}-preview
   type:  NodePort
   ports:
