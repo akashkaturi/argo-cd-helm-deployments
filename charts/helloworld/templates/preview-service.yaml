@@ -4,10 +4,9 @@ metadata:
   name: preview-service-{{.Values.env.name}}
 spec:
   selector:
-    "app.kubernetes.io/instance": { { .Release.Name } }
-    "app": "helloworld"
-  type: NodePort
+    "app.kubernetes.io/instance": {{ .Release.Name }}
+  type:  NodePort
   ports:
-    - name: http
-      port: 80
-      targetPort: 8080
+  - name:  http
+    port:  80
+    targetPort:  8080
