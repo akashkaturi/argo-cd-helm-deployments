@@ -24,4 +24,4 @@ spec:
       previewService: preview-service-{{.Values.env.name}}
       autoPromotionEnabled: false
       previewReplicaCount: 2
-      activeReplicaCount:2
+      activeReplicaCount: 2
